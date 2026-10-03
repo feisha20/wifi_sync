@@ -1,0 +1,18 @@
+# macOS 与 Xcode 本机文件
+.DS_Store
+.build/
+DerivedData/
+**/xcuserdata/
+*.xcuserstate
+.swiftpm/
+# 本机素材、凭据和诊断文件
+素材/
+downloads/
+cache/
+*.part
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.local.json
+*.log
+.env

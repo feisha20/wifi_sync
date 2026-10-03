@@ -1,0 +1,53 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+		D98854A48D82D0DB2BDCD333 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/App/AppModel.swift"; sourceTree = SOURCE_ROOT; };
+		6EF37E3B1FEB6D9C8D0AE146 = { isa = PBXBuildFile; fileRef = D98854A48D82D0DB2BDCD333; };
+		68D06CDA5BA16F5C50A998C8 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/App/ContentView.swift"; sourceTree = SOURCE_ROOT; };
+		A2AF292A221C5674D1047ECB = { isa = PBXBuildFile; fileRef = 68D06CDA5BA16F5C50A998C8; };
+		D04C9A3DADBE56CF59C08808 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/App/WiFiSyncApp.swift"; sourceTree = SOURCE_ROOT; };
+		0373D5A2641A95130D3461BF = { isa = PBXBuildFile; fileRef = D04C9A3DADBE56CF59C08808; };
+		51E35FB2A6E00DBA78A27602 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/Core/CameraDiscovery.swift"; sourceTree = SOURCE_ROOT; };
+		33760881844E35651377FF1B = { isa = PBXBuildFile; fileRef = 51E35FB2A6E00DBA78A27602; };
+		B771CE0904588811643A5E84 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/Core/CameraSession.swift"; sourceTree = SOURCE_ROOT; };
+		B509CB602C61909EFAC92C98 = { isa = PBXBuildFile; fileRef = B771CE0904588811643A5E84; };
+		BB76A9664BE9883C61482608 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/Core/ConnectionPreflight.swift"; sourceTree = SOURCE_ROOT; };
+		4FF37D2071F7936916A1587A = { isa = PBXBuildFile; fileRef = BB76A9664BE9883C61482608; };
+		3CB69BD7BD70CC2AF4BFA540 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/Core/CredentialStore.swift"; sourceTree = SOURCE_ROOT; };
+		E59D94A0ED11C8EF01AF0F40 = { isa = PBXBuildFile; fileRef = 3CB69BD7BD70CC2AF4BFA540; };
+		5EDD02E5A602C3B8D09D8583 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/Core/DUML.swift"; sourceTree = SOURCE_ROOT; };
+		5380003F92466682420A1663 = { isa = PBXBuildFile; fileRef = 5EDD02E5A602C3B8D09D8583; };
+		0CC4E80F9D02E9FBC0E10B73 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/Core/IntegrityVerification.swift"; sourceTree = SOURCE_ROOT; };
+		DDB28DC293887940728F9E0B = { isa = PBXBuildFile; fileRef = 0CC4E80F9D02E9FBC0E10B73; };
+		B4B388E6892FF799EB1547BF = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/Core/Manifest.swift"; sourceTree = SOURCE_ROOT; };
+		7438869CCEE4AB7B256D6A64 = { isa = PBXBuildFile; fileRef = B4B388E6892FF799EB1547BF; };
+		EB4363384A1B2AD88A57BF6B = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/Core/MediaTransfer.swift"; sourceTree = SOURCE_ROOT; };
+		63212523AA15ABB69B9FC369 = { isa = PBXBuildFile; fileRef = EB4363384A1B2AD88A57BF6B; };
+		5270F72BBB0F0888CCB09727 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/Core/Models.swift"; sourceTree = SOURCE_ROOT; };
+		57E7676F8B0B4297EDA45C2B = { isa = PBXBuildFile; fileRef = 5270F72BBB0F0888CCB09727; };
+		FEA122ED9C29B848AC8DD14A = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/Core/PreviewCache.swift"; sourceTree = SOURCE_ROOT; };
+		05F0F04A8F2259F5A11C4F5F = { isa = PBXBuildFile; fileRef = FEA122ED9C29B848AC8DD14A; };
+		AB5CBAE1138298E38A571461 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/Core/StateStore.swift"; sourceTree = SOURCE_ROOT; };
+		BB76E0086D25FD355E4C7F10 = { isa = PBXBuildFile; fileRef = AB5CBAE1138298E38A571461; };
+		F3A0DAF4E94A0C09F5A9F040 = { isa = PBXFileReference; lastKnownFileType = text; path = THIRD_PARTY_NOTICES.md; sourceTree = SOURCE_ROOT; };
+		715503FC66ACB177FDB9B741 = { isa = PBXBuildFile; fileRef = F3A0DAF4E94A0C09F5A9F040; };
+		A8792157CB4F27FB949C035F = { isa = PBXFileReference; explicitFileType = wrapper.application; path = WiFiSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A3E27B8CA818264D75C8D81 = { isa = PBXGroup; children = (A8792157CB4F27FB949C035F); name = Products; sourceTree = "<group>"; };
+		AD936FCBED631FA67E05C3EA = { isa = PBXGroup; children = (D98854A48D82D0DB2BDCD333,68D06CDA5BA16F5C50A998C8,D04C9A3DADBE56CF59C08808,51E35FB2A6E00DBA78A27602,B771CE0904588811643A5E84,BB76A9664BE9883C61482608,3CB69BD7BD70CC2AF4BFA540,5EDD02E5A602C3B8D09D8583,0CC4E80F9D02E9FBC0E10B73,B4B388E6892FF799EB1547BF,EB4363384A1B2AD88A57BF6B,5270F72BBB0F0888CCB09727,FEA122ED9C29B848AC8DD14A,AB5CBAE1138298E38A571461,F3A0DAF4E94A0C09F5A9F040,0A3E27B8CA818264D75C8D81); sourceTree = "<group>"; };
+		878A52FC5FF6A57D50B7B870 = { isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (6EF37E3B1FEB6D9C8D0AE146,A2AF292A221C5674D1047ECB,0373D5A2641A95130D3461BF,33760881844E35651377FF1B,B509CB602C61909EFAC92C98,4FF37D2071F7936916A1587A,E59D94A0ED11C8EF01AF0F40,5380003F92466682420A1663,DDB28DC293887940728F9E0B,7438869CCEE4AB7B256D6A64,63212523AA15ABB69B9FC369,57E7676F8B0B4297EDA45C2B,05F0F04A8F2259F5A11C4F5F,BB76E0086D25FD355E4C7F10); runOnlyForDeploymentPostprocessing = 0; };
+		41D311A605520FC7B8B9A980 = { isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (715503FC66ACB177FDB9B741); runOnlyForDeploymentPostprocessing = 0; };
+		E2AA269EB967A8853A258BFA = { isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		34A04005BCAF206EEC990BD9 = { isa = PBXNativeTarget; buildConfigurationList = 4A807E8A027297B0B93701FB; buildPhases = (878A52FC5FF6A57D50B7B870,E2AA269EB967A8853A258BFA,41D311A605520FC7B8B9A980); buildRules = (); dependencies = (); name = WiFiSync; productName = WiFiSync; productReference = A8792157CB4F27FB949C035F; productType = "com.apple.product-type.application"; };
+		952548237D7F645F11D1E7B6 = { isa = XCBuildConfiguration; name = Debug; buildSettings = { SDKROOT = "macosx"; MACOSX_DEPLOYMENT_TARGET = "15.0"; SWIFT_VERSION = "5.0"; ARCHS = "arm64"; ONLY_ACTIVE_ARCH = "YES"; PRODUCT_BUNDLE_IDENTIFIER = "cn.local.WiFiSync"; PRODUCT_NAME = "WiFiSync"; INFOPLIST_FILE = "Resources/Info.plist"; CODE_SIGN_ENTITLEMENTS = "Resources/WiFiSync.entitlements"; CODE_SIGN_STYLE = "Manual"; CODE_SIGN_IDENTITY = "-"; DEVELOPMENT_TEAM = ""; ENABLE_APP_SANDBOX = "YES"; GENERATE_INFOPLIST_FILE = "NO"; OTHER_LDFLAGS = "$(inherited) -lsqlite3"; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks"; SWIFT_EMIT_LOC_STRINGS = "NO"; CLANG_ENABLE_MODULES = "YES"; }; };
+		488864B3D19480A82F7F1786 = { isa = XCBuildConfiguration; name = Debug; buildSettings = { }; };
+		E2D3A31BEAA1368FC62DA77A = { isa = XCBuildConfiguration; name = Release; buildSettings = { SDKROOT = "macosx"; MACOSX_DEPLOYMENT_TARGET = "15.0"; SWIFT_VERSION = "5.0"; ARCHS = "arm64"; ONLY_ACTIVE_ARCH = "YES"; PRODUCT_BUNDLE_IDENTIFIER = "cn.local.WiFiSync"; PRODUCT_NAME = "WiFiSync"; INFOPLIST_FILE = "Resources/Info.plist"; CODE_SIGN_ENTITLEMENTS = "Resources/WiFiSync.entitlements"; CODE_SIGN_STYLE = "Manual"; CODE_SIGN_IDENTITY = "-"; DEVELOPMENT_TEAM = ""; ENABLE_APP_SANDBOX = "YES"; GENERATE_INFOPLIST_FILE = "NO"; OTHER_LDFLAGS = "$(inherited) -lsqlite3"; SWIFT_OPTIMIZATION_LEVEL = "-O"; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks"; SWIFT_EMIT_LOC_STRINGS = "NO"; CLANG_ENABLE_MODULES = "YES"; }; };
+		35B1014F135DE9B45529B733 = { isa = XCBuildConfiguration; name = Release; buildSettings = { }; };
+		4A807E8A027297B0B93701FB = { isa = XCConfigurationList; buildConfigurations = (952548237D7F645F11D1E7B6,E2D3A31BEAA1368FC62DA77A); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug; };
+		B4E10CAA9C5E22150B71559C = { isa = XCConfigurationList; buildConfigurations = (488864B3D19480A82F7F1786,35B1014F135DE9B45529B733); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug; };
+		244210E48437B6556980A702 = { isa = PBXProject; attributes = { LastUpgradeCheck = 1620; }; buildConfigurationList = B4E10CAA9C5E22150B71559C; compatibilityVersion = "Xcode 14.0"; developmentRegion = zh_CN; hasScannedForEncodings = 0; knownRegions = (zh_CN,en,Base); mainGroup = AD936FCBED631FA67E05C3EA; productRefGroup = 0A3E27B8CA818264D75C8D81; projectDirPath = ""; projectRoot = ""; targets = (34A04005BCAF206EEC990BD9); };
+	};
+	rootObject = 244210E48437B6556980A702;
+}
