@@ -5,6 +5,10 @@ DerivedData/
 **/xcuserdata/
 *.xcuserstate
 .swiftpm/
+dist/
+# Python 工程维护脚本缓存
+__pycache__/
+*.py[cod]
 # 本机素材、凭据和诊断文件
 素材/
 downloads/

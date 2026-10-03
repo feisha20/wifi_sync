@@ -16,6 +16,7 @@ def quoted(value):
 
 sources = sorted(p.relative_to(root).as_posix() for p in (root / "Sources").rglob("*.swift"))
 resource = "THIRD_PARTY_NOTICES.md"
+assets = "Resources/Assets.xcassets"
 objects = []
 
 def obj(key, value):
@@ -26,11 +27,13 @@ for path in sources:
     obj("build:" + path, f"isa = PBXBuildFile; fileRef = {uid('file:' + path)};")
 obj("license-file", f"isa = PBXFileReference; lastKnownFileType = text; path = {resource}; sourceTree = SOURCE_ROOT;")
 obj("license-build", f"isa = PBXBuildFile; fileRef = {uid('license-file')};")
+obj("assets-file", f"isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = {quoted(assets)}; sourceTree = SOURCE_ROOT;")
+obj("assets-build", f"isa = PBXBuildFile; fileRef = {uid('assets-file')};")
 obj("product", 'isa = PBXFileReference; explicitFileType = wrapper.application; path = WiFiSync.app; sourceTree = BUILT_PRODUCTS_DIR;')
 obj("products", f"isa = PBXGroup; children = ({uid('product')}); name = Products; sourceTree = \"<group>\";")
-obj("group", "isa = PBXGroup; children = (" + ",".join(uid("file:" + p) for p in sources) + f",{uid('license-file')},{uid('products')}); sourceTree = \"<group>\";")
+obj("group", "isa = PBXGroup; children = (" + ",".join(uid("file:" + p) for p in sources) + f",{uid('license-file')},{uid('assets-file')},{uid('products')}); sourceTree = \"<group>\";")
 obj("sources", "isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (" + ",".join(uid("build:" + p) for p in sources) + "); runOnlyForDeploymentPostprocessing = 0;")
-obj("resources", f"isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = ({uid('license-build')}); runOnlyForDeploymentPostprocessing = 0;")
+obj("resources", f"isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = ({uid('license-build')},{uid('assets-build')}); runOnlyForDeploymentPostprocessing = 0;")
 obj("frameworks", "isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0;")
 obj("target", f"isa = PBXNativeTarget; buildConfigurationList = {uid('target-configs')}; buildPhases = ({uid('sources')},{uid('frameworks')},{uid('resources')}); buildRules = (); dependencies = (); name = WiFiSync; productName = WiFiSync; productReference = {uid('product')}; productType = \"com.apple.product-type.application\";")
 for mode in ["Debug", "Release"]:
@@ -39,6 +42,7 @@ for mode in ["Debug", "Release"]:
         "ARCHS": "arm64", "ONLY_ACTIVE_ARCH": "YES",
         "PRODUCT_BUNDLE_IDENTIFIER": "cn.local.WiFiSync", "PRODUCT_NAME": "WiFiSync",
         "INFOPLIST_FILE": "Resources/Info.plist", "CODE_SIGN_ENTITLEMENTS": "Resources/WiFiSync.entitlements",
+        "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
         "CODE_SIGN_STYLE": "Manual", "CODE_SIGN_IDENTITY": "-", "DEVELOPMENT_TEAM": "",
         "ENABLE_APP_SANDBOX": "YES", "GENERATE_INFOPLIST_FILE": "NO",
         "OTHER_LDFLAGS": "$(inherited) -lsqlite3", "SWIFT_OPTIMIZATION_LEVEL": "-Onone" if mode == "Debug" else "-O",

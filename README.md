@@ -15,6 +15,14 @@ open .build/DerivedData/Build/Products/Debug/WiFiSync.app
 
 权限验收通过 Finder 或上面的 `open` 命令启动 `.app`；直接运行应用内部二进制不能证明正常启动时的权限行为。
 
+## 打包安装镜像
+
+```sh
+zsh scripts/package_dmg.sh
+```
+
+脚本构建 Release 版本，在 `dist/` 中生成包含应用、Applications 入口和中文安装说明的 DMG，以及 SHA-256 校验文件。完全退出旧版后，将镜像中的“相机素材同步.app”拖入“应用程序”文件夹即可安装。当前安装包适用于 Apple 芯片 Mac，要求 macOS 15 或更高版本，使用本机签名且未进行 Apple 公证。
+
 ## 使用步骤
 
 1. 相机已经激活，开机并靠近 Mac；退出手机上的 DJI Mimo，避免占用相机会话。
@@ -34,6 +42,7 @@ open .build/DerivedData/Build/Products/Debug/WiFiSync.app
 - 素材身份包含相机、存储来源、完整路径；同步版本还包含清单大小和拍摄时间。同步记录保存在应用沙盒的 Application Support 下。
 - 视频优先使用 `.LRF` 低清代理预览。无代理或原生播放器不支持时，显示下载原片操作；预览缓存不计作已同步。
 - 素材卡片和同步队列均提供“预览”按钮；已同步素材在重启后恢复到素材库，可以离线预览。视频使用 AppKit 原生播放器，提供播放、暂停和从头播放操作。
+- 预览准备完成后，点击“放大预览”扩大界面内的预览区域，左侧保留较窄的素材列表，连接操作与下载按钮仍可使用；点击“恢复预览”返回紧凑布局。照片保持原比例，视频沿用同一个播放器，调整大小不重置进度。
 - 原片分块直接写盘，内存占用不会随视频大小增长。`.part` 临时文件完成且长度正确后计算 SHA-256，保存提交凭据，再改名并提交同步记录。若改名后应用意外退出，下次启动通过长度和校验值恢复完成状态。
 - 续传检查 `206` 和 `Content-Range`。相机忽略 Range 返回 `200` 时从头下载，避免重复追加导致文件损坏。
 - 退出或暂停后保留未完成任务；重新启动后手动恢复。已有目标文件不会被覆盖。
@@ -64,6 +73,7 @@ zsh scripts/test.sh
 
 - `Sources/Core`：协议、蓝牙、媒体会话、缓存、下载和 SQLite。
 - `Sources/App`：中文连接向导、素材库、预览、同步队列与验收入口。
+- `Resources/Assets.xcassets/AppIcon.appiconset`：相机与无线传输主题的应用图标，包含 macOS 所需的各尺寸资源，构建后用于 Finder、Dock 和应用切换器。
 - 新增 Swift 文件后使用 `python3 scripts/generate_project.py` 更新提交的 Xcode 工程。
 - `.gitignore` 排除构建、素材、缓存、个人配置及凭据。诊断信息不包含热点密码，复制分享前可检查文件名。
 - 开源协议参考和许可见 `THIRD_PARTY_NOTICES.md`。

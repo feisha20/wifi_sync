@@ -9,7 +9,7 @@
 <key>CFBundleName</key><string>相机素材同步</string>
 <key>CFBundlePackageType</key><string>APPL</string>
 <key>CFBundleShortVersionString</key><string>0.1.0</string>
-<key>CFBundleVersion</key><string>1</string>
+<key>CFBundleVersion</key><string>2</string>
 <key>LSMinimumSystemVersion</key><string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 <key>NSBluetoothAlwaysUsageDescription</key><string>通过蓝牙发现并配对你的大疆运动相机，准备无线素材传输。</string>
 <key>NSLocalNetworkUsageDescription</key><string>通过相机 WiFi 浏览照片和视频，并将原始素材下载到 Mac。</string>

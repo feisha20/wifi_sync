@@ -3,6 +3,13 @@ import AppKit
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
     weak var model: AppModel?
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        // 启动时直接读取随应用打包的图标，避免 Dock 沿用旧版本的默认图标。
+        if let url = Bundle.main.url(forResource: "AppIcon", withExtension: "icns"),
+           let icon = NSImage(contentsOf: url) {
+            NSApp.applicationIconImage = icon
+        }
+    }
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         guard let model else { return .terminateNow }
         Task { @MainActor in await model.shutdown(); sender.reply(toApplicationShouldTerminate: true) }

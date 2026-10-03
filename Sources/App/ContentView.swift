@@ -7,6 +7,7 @@ struct ContentView: View {
     @ObservedObject var discovery: CameraDiscovery
     @State private var tab = 0
     @State private var showPassword = false
+    @State private var expandedPreview = false
 
     var body: some View {
         HSplitView {
@@ -126,9 +127,12 @@ struct ContentView: View {
                             }.padding(20)
                         }
                     }
-                }.frame(minWidth: 360, idealWidth: 560, maxWidth: .infinity, maxHeight: .infinity)
+                }.frame(minWidth: expandedPreview ? 220 : 360,
+                        idealWidth: expandedPreview ? 240 : 560,
+                        maxWidth: expandedPreview ? 300 : .infinity, maxHeight: .infinity)
                     .background(Color(nsColor: .windowBackgroundColor))
-                previewPane.frame(minWidth: 280, idealWidth: 320, maxWidth: 400)
+                previewPane.frame(minWidth: 280, idealWidth: expandedPreview ? 720 : 320,
+                                  maxWidth: expandedPreview ? .infinity : 400)
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
             Divider()
             HStack(spacing: 12) {
@@ -211,6 +215,13 @@ struct ContentView: View {
                     if let item = model.previewItem {
                         Text(item.isVideo ? "视频" : "照片").font(.caption2).foregroundStyle(.secondary)
                     }
+                    if model.player != nil || model.previewImage != nil || expandedPreview {
+                        Button(expandedPreview ? "恢复预览" : "放大预览",
+                               systemImage: expandedPreview ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right") {
+                            expandedPreview.toggle()
+                        }.controlSize(.small)
+                            .help(expandedPreview ? "恢复紧凑预览" : "扩大预览区域，同时保留素材列表和其他操作")
+                    }
                 }
                 if let player = model.player {
                     NativeVideoPlayer(player: player).aspectRatio(16.0 / 9.0, contentMode: .fit)
@@ -223,6 +234,7 @@ struct ContentView: View {
                     }.controlSize(.small)
                 } else if let image = model.previewImage {
                     Image(nsImage: image).resizable().scaledToFit().frame(maxWidth: .infinity)
+                        .frame(maxHeight: expandedPreview ? 520 : 300)
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                 } else {
                     VStack(spacing: 12) {
